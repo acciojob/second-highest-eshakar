@@ -10,6 +10,7 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
+			
 			let highest = -infinity;
 			let secondHighest = -infintiy;
 
@@ -35,6 +36,7 @@
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
 			}
+			var numberArray = arr.map(Number);
 			 alert(secondHighest(arr));
 		}
 		Main();
