@@ -9,37 +9,44 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
-			let highest = -Infinity;
-			let secondHighest = -Infinity;
+    let highest = -Infinity;
+    let secondHighest = -Infinity;
 
-			for (let num of arr) {
-				num = Number(num);
+    // Step 3: Loop through the array
+    for (let num of arr) {
+        // Convert string to number
+        num = Number(num);
 
-				if (num > highest) {
-					secondHighest = highest;
-					highest = num;
-				} else if (num > secondHighest && num < highest) {
-					secondHighest = num;
-				}
-			}
-			if (secondHighest === -infinity) {
-				return -infinity;
-			}
-			return secondHighest;
-		}
+        // Step 4: Update highest and secondHighest
+        if (num > highest) {
+            secondHighest = highest; // Update second highest
+            highest = num; // Update highest
+        } else if (num > secondHighest && num < highest) {
+            secondHighest = num; // Update second highest only
+        }
+    }
 
-		function Main() {
-			 var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			var numberArray = arr.map(Number);
-			 alert(secondHighest(numberArray));
-		}
-		Main();
+    // Step 5: Handle edge cases
+    if (secondHighest === -Infinity) {
+        return -Infinity; // Return -Infinity if no valid second highest found
+    }
+
+    // Step 6: Return the result
+    return secondHighest;
+}
+
+function Main() {
+    var n = prompt("Enter the number of elements");
+    var arr = [];
+    for (var i = 0; i < n; i++) {
+        arr[i] = prompt("Enter element " + (i + 1));
+    }
+    // Convert the array elements to numbers before passing to the function
+    var numberArray = arr.map(Number);
+    alert(secondHighest(numberArray));
+}
+
+Main();
 	</script>
 
     <script type="text/javascript" src="./script.js">
